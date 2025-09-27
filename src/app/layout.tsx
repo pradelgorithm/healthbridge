@@ -15,6 +15,17 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "HealthBridge - Your Complete Health Data Platform",
   description: "Connect all your health devices and data in one place. For patients and healthcare providers.",
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-16.svg', type: 'image/svg+xml', sizes: '16x16' },
+      { url: '/favicon-32.svg', type: 'image/svg+xml', sizes: '32x32' }
+    ],
+    shortcut: '/favicon.svg',
+    apple: [
+      { url: '/favicon.svg', sizes: '180x180', type: 'image/svg+xml' }
+    ]
+  }
 };
 
 export default function RootLayout({
