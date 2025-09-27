@@ -1,26 +1,103 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
+@theme {
+  --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Geist Mono', 'Courier New', monospace;
+}
+
+/* HealthBridge Custom Theme - DaisyUI v5 Format */
+[data-theme="healthbridge"] {
+  /* DaisyUI v5 improved color variables - more readable and customizable */
+  --color-primary: oklch(66% 0.2 231);           /* HealthBridge Blue #0066cc */
+  --color-primary-content: oklch(100% 0 0);      /* White text on primary */
+  --color-secondary: oklch(63% 0.15 174);        /* HealthBridge Green #00a085 */
+  --color-secondary-content: oklch(100% 0 0);    /* White text on secondary */
+  --color-accent: oklch(58% 0.15 267);           /* HealthBridge Purple #5a4fcf */
+  --color-accent-content: oklch(100% 0 0);       /* White text on accent */
+  --color-neutral: oklch(37% 0.02 232);          /* Neutral gray #374151 */
+  --color-neutral-content: oklch(100% 0 0);      /* White text on neutral */
+  --color-base-100: oklch(100% 0 0);             /* White background */
+  --color-base-200: oklch(98% 0 0);              /* Light gray #f9fafb */
+  --color-base-300: oklch(96% 0 0);              /* Lighter gray #f3f4f6 */
+  --color-base-content: oklch(20% 0 0);          /* Dark text #1a1a1a */
+  --color-info: oklch(70% 0.15 231);             /* Info blue #3b82f6 */
+  --color-info-content: oklch(100% 0 0);         /* White text on info */
+  --color-success: oklch(65% 0.15 159);          /* Success green #059669 */
+  --color-success-content: oklch(100% 0 0);      /* White text on success */
+  --color-warning: oklch(75% 0.15 84);           /* Warning orange #d97706 */
+  --color-warning-content: oklch(100% 0 0);      /* White text on warning */
+  --color-error: oklch(65% 0.15 22);             /* Error red #dc2626 */
+  --color-error-content: oklch(100% 0 0);        /* White text on error */
+}
+
+/* HealthBridge Dark Theme - DaisyUI v5 Format */
+[data-theme="healthbridge-dark"] {
+  /* DaisyUI v5 dark theme with improved readability */
+  --color-primary: oklch(70% 0.15 231);          /* Lighter blue for dark mode */
+  --color-primary-content: oklch(15% 0 0);       /* Dark text on primary */
+  --color-secondary: oklch(70% 0.15 174);        /* Lighter green for dark mode */
+  --color-secondary-content: oklch(15% 0 0);     /* Dark text on secondary */
+  --color-accent: oklch(75% 0.15 267);           /* Lighter purple for dark mode */
+  --color-accent-content: oklch(15% 0 0);        /* Dark text on accent */
+  --color-neutral: oklch(25% 0.02 232);          /* Dark neutral */
+  --color-neutral-content: oklch(85% 0 0);       /* Light text on neutral */
+  --color-base-100: oklch(15% 0.02 232);         /* Dark background #0f172a */
+  --color-base-200: oklch(20% 0.02 232);         /* Darker gray #1e293b */
+  --color-base-300: oklch(25% 0.02 232);         /* Dark gray #334155 */
+  --color-base-content: oklch(85% 0 0);          /* Light text #f1f5f9 */
+  --color-info: oklch(70% 0.15 231);             /* Info blue */
+  --color-info-content: oklch(15% 0 0);          /* Dark text on info */
+  --color-success: oklch(70% 0.15 159);          /* Success green */
+  --color-success-content: oklch(15% 0 0);       /* Dark text on success */
+  --color-warning: oklch(80% 0.15 84);           /* Warning orange */
+  --color-warning-content: oklch(15% 0 0);       /* Dark text on warning */
+  --color-error: oklch(70% 0.15 22);             /* Error red */
+  --color-error-content: oklch(15% 0 0);         /* Dark text on error */
+}
+
+/* HealthBridge Global Styles */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Font Variables */
+  --font-geist-sans: 'Geist', system-ui, -apple-system, sans-serif;
+  --font-geist-mono: 'Geist Mono', 'Courier New', monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base styles using DaisyUI variables */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+/* Focus styles for accessibility using DaisyUI v5 colors */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Custom gradient text utility - DaisyUI v5 */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Icon centering utility - Override DaisyUI defaults */
+.icon-center {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Fix avatar placeholder centering */
+.avatar.placeholder > div {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
